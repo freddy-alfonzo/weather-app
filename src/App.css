@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button span {
+  cursor: inherit;
+}
+.App {
+  display: flex;
+  font-family: "Raleway", sans-serif;
+  min-height: 100%;
+}
+.minor {
+  width: 30%;
+  background-color: #1e213a;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.minor-buttons {
+  padding: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+.minor-button {
+  background-color: #6e707a;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+.minor-button.exact {
+  border-radius: 100%;
+  padding: 10px;
+}
+.overlay {
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background-color: #1e213a;
+  left: -30%;
+  transition: 0.3s;
+  transition-timing-function: ease-out;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+.overlay.active {
+  left: 0;
+  transition: 0.3s;
+  transition-timing-function: ease-in;
+}
+.search-location {
+  display: flex;
+  margin: 0 auto;
+}
+.search-location div {
+  border: 1px solid white;
+  padding: 10px;
+}
+.search-location div span {
+  margin: 0 5px;
+  vertical-align: middle;
+  color: #585676;
+}
+.search-location input {
+  background: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+
+.search-location button {
+  background-color: #3c47e9;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+}
+.city-button {
+  width: 80%;
+  padding: 1em;
+  margin: 1em auto;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  text-align: initial;
+}
+.city-button span {
+  color: transparent;
+}
+.city-button:hover {
+  border: 1px solid #585676;
+}
+.city-button:hover span {
+  color: #585676;
+}
+.weather-icon {
+  display: block;
+  position: relative;
+  padding: 3em 0;
+}
+.weather-icon::after {
+  content: "";
+  background: url(./images/Cloud-background.png);
+  opacity: 0.3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.temperature {
+  font-size: 70px;
+  color: #e7e7eb;
+}
+.low {
+  color: #a09fb1;
+}
+.major {
+  width: 70%;
+  background-color: #100e1d;
+  color: white;
+}
+.major p {
+  text-align: center;
+}
+.degrees,
+.week-forecast,
+.features-page {
+  padding: 1em 5vw;
+}
+
+.degrees-button {
+  background-color: #585676;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 100%;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 56px;
+}
+.degrees-button.active {
+  background-color: #e7e7eb;
+  color: #110e3c;
+}
+
+.day {
+  background-color: #1e213a;
+  padding: 1em 1.5vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.temps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.temps .min {
+  opacity: 0.5;
+}
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 1em;
+}
+
+.featured-item {
+  background-color: #1e213a;
+  padding: 1em 2em;
+  text-align: center;
+}
+.featured-item .main {
+  font-size: 28px;
+}
+.featured-item .main span {
+  font-size: 40px;
+  font-weight: bold;
+}
+.featured-item .percentages {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.featured-item .percentages p {
+  margin: 0;
+  font-size: 12px;
+  color: #e7e7eb;
+}
+.featured-item .container {
+  width: 100%;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #e7e7eb;
+}
+.featured-item .container .humidity {
+  height: 10px;
+  border-radius: 10px;
+  background-color: #ffec65;
+  display: block;
+}
+span.direction {
+  margin: 0 5px;
+  background: #6e707a;
+  padding: 7px;
+  border-radius: 50%;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1023px) {
+  .App {
+    flex-direction: column;
+  }
+  .major,
+  .minor {
+    width: 100%;
+  }
+  .week-forecast {
+    flex-wrap: wrap;
+  }
+  .overlay {
+    width: 100%;
+    left: -100%;
+  }
+  .search-location div {
+    width: 80%;
+    text-align: initial;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .features {
+    grid-template-columns: auto;
+  }
+}
